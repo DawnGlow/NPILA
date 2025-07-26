@@ -15,7 +15,7 @@ Run the following scripts:
 python chunk1.py
 python chunk2.py
 python fast.py
+```
 
 The result will be saved to:
-
-./result/sk_sum.xlsx
+`./result/sk_sum.xlsx`
