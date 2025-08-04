@@ -18,5 +18,7 @@ python fast.py
 ```
 
 `chunk1.py` corresponds to a chunk size of 1, recovering just one key coefficients at each step.
+
 `chunk2.py` corresponds to a chunk size of 2, recovering two key coefficients at each step.
+
 `fast.py` is a faster version with a chunk size of 2. When the model demonstrates sufficient classification ability, training is stopped early to improve efficiency.
