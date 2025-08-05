@@ -46,18 +46,18 @@ trained_model_folder = "./train/"
 model_folder = "./model/"
 final_folder = "./result/"
 
-nb_epochs = 20
+nb_epochs = 30
 batch_size = 16
 input_size = 450
 learning_rate = 5e-4
 
 num = 128           # Total number of chunks to process
 num_s = 2           # Number of keys to recover simultaneously in each chunk
-n_tra = 15          # Number of training traces
-n_val = 5          # Number of validation traces
+n_tra = 35          # Number of training traces
+n_val = 15          # Number of validation traces
 point = input_size  # Number of points in each trace
 j = n_tra + n_val   # Used for normalization
-group_sum = 2      # Run for 10 rounds and take the average
+group_sum = 10      # Run for 10 groups and take the average
 lambda_mmd = 5      # Weight for the MMD loss
 
 # All possible labels for s[0] and s[1]
@@ -75,6 +75,7 @@ sheet.title = 'Sheet'
 # Write the table header to the file
 header = ['Group'] + [f's[{i}]' for i in range(256)]
 
+# The key is only used for final accuracy verification.
 keys = load_key("Kyber768_key.txt", start=0, length=256)
 
 # data contains traces, and each line in wave.txt stores the trace corresponding to 256 keys.
