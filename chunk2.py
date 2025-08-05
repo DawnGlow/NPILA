@@ -46,7 +46,7 @@ trained_model_folder = "./train/"
 model_folder = "./model/"
 final_folder = "./result/"
 
-nb_epochs = 20
+nb_epochs = 30
 batch_size = 16
 input_size = 450
 learning_rate = 5e-4
@@ -57,7 +57,7 @@ n_tra = 35          # Number of training traces
 n_val = 15          # Number of validation traces
 point = input_size  # Number of points in each trace
 j = n_tra + n_val   # Used for normalization
-group_sum = 10      # Run for 10 rounds and take the average
+group_sum = 10      # Run for 10 groups and take the average
 lambda_mmd = 5      # Weight for the MMD loss
 
 # All possible labels for s[0] and s[1]
@@ -75,6 +75,7 @@ sheet.title = 'Sheet'
 # Write the table header to the file
 header = ['Group'] + [f's[{i}]' for i in range(256)]
 
+# The key is only used for final accuracy verification.
 keys = load_key("Kyber768_key.txt", start=0, length=256)
 
 # data contains traces, and each line in wave.txt stores the trace corresponding to 256 keys.
@@ -468,3 +469,4 @@ print("block=2, total groups: " + str(group_sum))
 print("Start time:", datetime.datetime.fromtimestamp(start_time).strftime('%Y-%m-%d %H:%M:%S'))
 print("End time:", datetime.datetime.fromtimestamp(end_time).strftime('%Y-%m-%d %H:%M:%S'))
 print("Total duration: {:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+
